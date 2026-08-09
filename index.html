@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SoDak EduTech — Campus training, cloud, AI &amp; placement preparation</title>
+<meta name="description" content="SoDak EduTech delivers campus training and elite placement preparation in AWS, Azure, GCP, Generative AI, DevOps, Java, full-stack, cybersecurity and machine learning. Trainers from Amazon, PayPal, Juspay, Zoho, Accenture, TCS, Cognizant and Northern Arc Capital.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Newsreader:opsz,wght@6..72,300..600&family=Sora:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#12203F;
+  --navy-deep:#0A1329;
+  --navy-soft:#1C3160;
+  --blue:#2C6FD1;
+  --blue-deep:#1B4B9E;
+  --gold:#E0A82E;
+  --gold-lift:#F2C154;
+  --paper:#F1F4F9;
+  --paper-2:#E4E9F1;
+  --ink:#141C2B;
+  --ink-soft:#4E5A6E;
+  --mist:#B9C6DE;
+  --line:#C8D2E2;
+  --line-dark:#26375F;
+
+  --display:"Archivo",system-ui,sans-serif;
+  --brand:"Sora",system-ui,sans-serif;
+  --body:"Newsreader",Georgia,serif;
+  --mono:"Space Mono",ui-monospace,monospace;
+
+  --pad:clamp(20px,5vw,72px);
+  --maxw:1260px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue-deep);display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--gold);flex:none}
+.eyebrow.on-dark{color:var(--gold)}
+
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.05;letter-spacing:-.022em}
+h2{font-size:clamp(30px,4.4vw,52px);font-variation-settings:"wdth" 92}
+h3{font-size:clamp(19px,2vw,23px);font-weight:700}
+
+/* Masthead */
+.masthead{position:sticky;top:0;z-index:60;background:rgba(10,19,41,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-dark)}
+.masthead .wrap{display:flex;align-items:center;justify-content:space-between;height:74px;gap:22px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{width:42px;height:42px;flex:none;background:#fff;border-radius:10px;display:grid;place-items:center;padding:5px;box-shadow:0 2px 10px rgba(0,0,0,.28)}
+.brand-text{display:flex;flex-direction:column;line-height:1.15}
+.brand-name{font-family:var(--brand);font-weight:800;font-size:18px;letter-spacing:-.025em;color:#fff}
+.brand-name b{color:var(--gold);font-weight:800}
+.brand-sub{font-family:var(--mono);font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--mist)}
+.nav{display:flex;align-items:center;gap:26px}
+.nav a{font-family:var(--brand);font-size:13.5px;font-weight:600;color:var(--mist);transition:color .18s}
+.nav a:hover{color:var(--gold-lift)}
+.nav .tel{font-family:var(--mono);font-size:12.5px;color:#fff;letter-spacing:.02em}
+.nav .tel:hover{color:var(--gold-lift)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--brand);font-weight:700;font-size:14px;padding:12px 22px;border:1.5px solid transparent;border-radius:6px;transition:background .2s,color .2s,border-color .2s,transform .2s}
+.btn-gold{background:var(--gold);color:var(--navy-deep)}
+.btn-gold:hover{background:var(--gold-lift);transform:translateY(-1px)}
+.btn-ghost{border-color:var(--line-dark);color:#fff}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-lift)}
+.btn-outline{border-color:var(--ink);color:var(--ink)}
+.btn-outline:hover{background:var(--ink);color:#fff}
+.nav-toggle{display:none;background:none;border:1px solid var(--line-dark);color:#fff;padding:9px 13px;border-radius:6px;font-family:var(--mono);font-size:11px;letter-spacing:.15em;cursor:pointer}
+
+/* Hero */
+.hero{position:relative;background:radial-gradient(1100px 540px at 76% -10%,rgba(44,111,209,.34),transparent 62%),radial-gradient(720px 440px at 6% 110%,rgba(224,168,46,.14),transparent 66%),linear-gradient(168deg,var(--navy) 0%,var(--navy-deep) 100%);color:#fff;overflow:hidden;border-bottom:1px solid var(--line-dark)}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line-dark) 1px,transparent 1px),linear-gradient(90deg,var(--line-dark) 1px,transparent 1px);background-size:76px 76px;opacity:.34;mask-image:radial-gradient(ellipse 92% 76% at 50% 20%,#000 30%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 92% 76% at 50% 20%,#000 30%,transparent 100%);pointer-events:none}
+.hero .wrap{position:relative;z-index:2;padding-top:clamp(58px,8vw,104px);padding-bottom:clamp(44px,5vw,66px)}
+.hero-grid{display:grid;grid-template-columns:1.35fr .85fr;gap:clamp(34px,5vw,74px);align-items:start}
+.hero h1{font-size:clamp(37px,6vw,78px);font-variation-settings:"wdth" 86;font-weight:900;margin:24px 0 0;letter-spacing:-.035em}
+.hero h1 em{font-family:var(--body);font-style:italic;font-weight:400;color:var(--gold);letter-spacing:-.01em}
+.hero-lede{font-size:clamp(17px,1.4vw,20px);color:var(--mist);max-width:52ch;margin-top:24px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:34px}
+.cred{border:1px solid var(--line-dark);border-radius:10px;background:rgba(28,49,96,.4);padding:26px 26px 22px}
+.cred-label{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.cred-list{list-style:none}
+.cred-list li{display:flex;align-items:baseline;gap:14px;padding:11px 0;border-top:1px solid var(--line-dark);font-family:var(--brand);font-weight:600;font-size:15px}
+.cred-list li:first-child{border-top:0}
+.cred-list li span{font-family:var(--mono);font-size:9.5px;color:var(--gold);letter-spacing:.1em;margin-left:auto;text-transform:uppercase;white-space:nowrap}
+
+/* Company rail */
+.rail{position:relative;z-index:2;border-top:1px solid var(--line-dark);background:rgba(6,11,24,.55);padding:15px 0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.rail-track{display:flex;width:max-content;animation:railslide 44s linear infinite}
+.rail-set{display:flex;align-items:center;flex:none}
+.rail-set span{font-family:var(--mono);font-size:12.5px;letter-spacing:.19em;text-transform:uppercase;color:var(--mist);padding:0 24px;white-space:nowrap}
+.rail-set span.mark{color:var(--gold);padding:0;font-size:8px}
+@keyframes railslide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.rail:hover .rail-track{animation-play-state:paused}
+
+/* Bands */
+.band{padding:clamp(60px,7.5vw,104px) 0}
+.band-light{background:var(--paper)}
+.band-recessed{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.band-dark{background:var(--navy);color:#fff;border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark)}
+.band-dark h2,.band-dark h3{color:#fff}
+.head{max-width:64ch;margin-bottom:clamp(34px,4.2vw,56px)}
+.head h2{margin-top:18px}
+.head p{margin-top:18px;color:var(--ink-soft);font-size:18.5px}
+.band-dark .head p{color:var(--mist)}
+
+/* Trainer strip — moves left to right */
+.strip{overflow:hidden;padding:6px 0 4px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.strip-track{display:flex;width:max-content;animation:stripslide 46s linear infinite}
+@keyframes stripslide{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.strip:hover .strip-track{animation-play-state:paused}
+.strip-set{display:flex;flex:none}
+.tcard{width:238px;flex:none;margin-right:22px;text-align:center;padding:26px 16px 24px;border:1px solid var(--line-dark);border-radius:12px;background:linear-gradient(180deg,rgba(28,49,96,.5),rgba(10,19,41,.5));transition:border-color .22s,transform .22s}
+.tcard:hover{border-color:var(--gold);transform:translateY(-4px)}
+.tphoto{width:132px;height:132px;margin:0 auto 18px;border-radius:50%;overflow:hidden;border:2px solid var(--line-dark);box-shadow:0 10px 26px rgba(0,0,0,.35)}
+.tcard:hover .tphoto{border-color:var(--gold)}
+.tphoto img{width:100%;height:100%;object-fit:cover}
+.tname{font-family:var(--brand);font-weight:700;font-size:16px;color:#fff;letter-spacing:-.015em}
+.tco{font-family:var(--mono);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-top:8px}
+.trole{font-size:14.5px;color:var(--mist);margin-top:10px;line-height:1.45}
+
+/* Partners */
+.partners{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.partner{background:var(--paper);border:1px solid var(--line);border-radius:10px;border-left:3px solid var(--blue);padding:30px 28px;transition:transform .22s,border-left-color .22s,box-shadow .22s}
+.partner:hover{transform:translateY(-3px);border-left-color:var(--gold);box-shadow:0 14px 34px rgba(18,32,63,.1)}
+.partner-tag{font-family:var(--mono);font-size:10px;letter-spacing:.19em;text-transform:uppercase;color:var(--ink-soft)}
+.partner h3{margin:13px 0 9px}
+.partner p{color:var(--ink-soft);font-size:16px}
+.note-strip{margin-top:24px;padding:17px 21px;border:1px dashed var(--line);border-radius:8px;font-family:var(--mono);font-size:12px;letter-spacing:.05em;color:var(--ink-soft)}
+
+/* Curriculum */
+.stacks{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.stack{border:1px solid var(--line-dark);border-radius:12px;background:linear-gradient(180deg,rgba(28,49,96,.42),rgba(10,19,41,.42));padding:28px 26px 26px;transition:border-color .22s,transform .22s}
+.stack:hover{border-color:var(--blue);transform:translateY(-3px)}
+.stack-kicker{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.stack h3{margin:12px 0 16px;font-variation-settings:"wdth" 96}
+.chips{display:flex;flex-wrap:wrap;gap:7px;list-style:none}
+.chips li{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--mist);border:1px solid var(--line-dark);border-radius:999px;padding:5px 11px;transition:border-color .18s,color .18s}
+.stack:hover .chips li{border-color:#2E4A85}
+.chips li:hover{border-color:var(--gold);color:var(--gold-lift)}
+
+/* Programs */
+.programs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.program{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:30px 26px 28px;transition:border-color .22s,transform .22s,box-shadow .22s}
+.program:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 14px 34px rgba(18,32,63,.09)}
+.program-idx{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;color:var(--blue-deep)}
+.program h3{margin:14px 0 11px;font-variation-settings:"wdth" 96}
+.program p{color:var(--ink-soft);font-size:16px}
+
+/* Pipeline */
+.pipeline{display:grid;grid-template-columns:repeat(5,1fr)}
+.stage{padding:26px 20px 24px;border-top:2px solid var(--line-dark)}
+.stage:first-child{padding-left:0}
+.stage.is-final{border-top-color:var(--gold)}
+.stage-num{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--mist)}
+.stage.is-final .stage-num{color:var(--gold)}
+.stage h3{font-size:19px;margin:13px 0 9px}
+.stage p{font-size:15.5px;color:var(--mist)}
+
+/* Platform */
+.platform{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.plat{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:28px 26px;transition:border-color .2s,transform .2s}
+.plat:hover{border-color:var(--gold);transform:translateY(-3px)}
+.plat-kicker{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue-deep)}
+.plat h3{margin:13px 0 9px}
+.plat p{font-size:16px;color:var(--ink-soft)}
+
+/* Metrics */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);border-radius:10px;overflow:hidden}
+.metric{background:var(--navy-deep);padding:32px 24px}
+.metric-num{font-family:var(--display);font-weight:900;font-size:clamp(32px,4.2vw,50px);font-variation-settings:"wdth" 78;color:var(--gold);line-height:1;letter-spacing:-.03em}
+.metric-label{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mist);margin-top:13px}
+
+/* Contact */
+.cta-band{background:var(--navy-deep);color:#fff;padding:clamp(58px,7vw,92px) 0}
+.cta-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(30px,5vw,68px);align-items:end}
+.cta-grid h2{font-size:clamp(30px,4.2vw,50px);margin-top:18px}
+.cta-grid p{color:var(--mist);margin-top:18px;max-width:46ch}
+.contact-list{list-style:none}
+.contact-list li{border-top:1px solid var(--line-dark);padding:14px 0;display:flex;gap:16px;align-items:baseline}
+.contact-list .k{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);width:74px;flex:none}
+.contact-list .v{font-family:var(--brand);font-weight:600;font-size:15.5px;word-break:break-word}
+.contact-list a:hover{color:var(--gold-lift)}
+
+footer{background:var(--navy-deep);color:var(--mist);border-top:1px solid var(--line-dark);padding:30px 0}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.11em;text-transform:uppercase}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s cubic-bezier(.2,.7,.3,1),transform .6s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+:focus-visible{outline:2px solid var(--gold-lift);outline-offset:3px}
+
+@media(max-width:1024px){
+  .hero-grid{grid-template-columns:1fr}
+  .programs,.platform,.stacks{grid-template-columns:repeat(2,1fr)}
+  .pipeline{grid-template-columns:repeat(2,1fr)}
+  .stage:first-child{padding-left:20px}
+  .metrics{grid-template-columns:repeat(2,1fr)}
+  .cta-grid{grid-template-columns:1fr}
+  .nav{gap:18px}
+}
+@media(max-width:760px){
+  body{font-size:16px}
+  .nav{display:none;position:absolute;top:74px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--navy-deep);border-bottom:1px solid var(--line-dark);padding:8px 0}
+  .nav.open{display:flex}
+  .nav a{padding:13px var(--pad);font-size:15px}
+  .nav .btn{margin:10px var(--pad) 12px}
+  .nav-toggle{display:block}
+  .partners,.programs,.platform,.stacks{grid-template-columns:1fr}
+  .pipeline{grid-template-columns:1fr}
+  .stage{padding:22px 0}
+  .stage:first-child{padding-left:0}
+  .hero-cta .btn{flex:1 1 100%}
+  .tcard{width:206px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="brand-mark"><img src="assets/logo.png" alt="SoDak EduTech"></span>
+      <span class="brand-text">
+        <span class="brand-name">SoDak <b>EduTech</b></span>
+        <span class="brand-sub">Training &amp; Assessment</span>
+      </span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#trainers">Trainers</a>
+      <a href="#curriculum">What we train</a>
+      <a href="#partners">Partners</a>
+      <a href="#programs">Programs</a>
+      <a href="#platform">Platform</a>
+      <a class="tel" href="tel:+918939366259">+91 89393 66259</a>
+      <a class="btn btn-gold" href="#contact">Book a program</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav">Menu</button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow on-dark">Campus training · Chennai, India</p>
+        <h1>Taught by engineers who<br><em>cleared the interviews</em><br>your students are sitting for.</h1>
+        <p class="hero-lede">Cloud, Generative AI, DevOps, full-stack and cybersecurity training delivered inside engineering colleges — by practising engineers from Amazon, Zoho, Accenture, TCS and Northern Arc Capital.</p>
+        <div class="hero-cta">
+          <a class="btn btn-gold" href="#contact">Book a campus program</a>
+          <a class="btn btn-ghost" href="tel:+918939366259">Call +91 89393 66259</a>
+        </div>
+      </div>
+      <aside class="cred">
+        <p class="cred-label">What a program includes</p>
+        <ul class="cred-list">
+          <li>On-campus &amp; hybrid delivery <span>Flexible</span></li>
+          <li>Live labs, not slide decks <span>Hands-on</span></li>
+          <li>Mock assessments on our platform <span>Timed</span></li>
+          <li>Per-student performance report <span>For TPOs</span></li>
+          <li>Faculty development sessions <span>Included</span></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+  <div class="rail" aria-label="Companies our trainers have worked at">
+    <div class="rail-track">
+      <div class="rail-set">
+        <span>Amazon</span><span class="mark">◆</span><span>PayPal</span><span class="mark">◆</span><span>Juspay</span><span class="mark">◆</span><span>Zoho</span><span class="mark">◆</span><span>Accenture</span><span class="mark">◆</span><span>TCS</span><span class="mark">◆</span><span>Cognizant</span><span class="mark">◆</span><span>Northern Arc Capital</span><span class="mark">◆</span>
+      </div>
+      <div class="rail-set" aria-hidden="true">
+        <span>Amazon</span><span class="mark">◆</span><span>PayPal</span><span class="mark">◆</span><span>Juspay</span><span class="mark">◆</span><span>Zoho</span><span class="mark">◆</span><span>Accenture</span><span class="mark">◆</span><span>TCS</span><span class="mark">◆</span><span>Cognizant</span><span class="mark">◆</span><span>Northern Arc Capital</span><span class="mark">◆</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAINERS -->
+<section class="band band-dark" id="trainers">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow on-dark">The people in the room</p>
+      <h2>Our elite trainers.</h2>
+      <p>Every session is led by an engineer working inside a product or financial-technology company — so students learn what the hiring bar actually is, from someone who has been on the other side of the table.</p>
+    </div>
+  </div>
+  <div class="strip">
+    <div class="strip-track">
+      <div class="strip-set"><article class="tcard"><div class="tphoto"><img src="assets/nithesh.jpg" alt="Nithesh, trainer at SoDak EduTech" loading="lazy"></div><p class="tname">Nithesh</p><p class="tco">Amazon</p><p class="trole">SDE · Data structures &amp; interview preparation</p></article><article class="tcard"><div class="tphoto"><img src="assets/saivarun.jpg" alt="Sai Varun, trainer at SoDak EduTech" loading="lazy"></div><p class="tname">Sai Varun</p><p class="tco">Zoho Corp</p><p class="trole">Java, Spring Boot &amp; product engineering</p></article><article class="tcard"><div class="tphoto"><img src="assets/neeharika.jpg" alt="Neeharika Srinivasan, trainer at SoDak EduTech" loading="lazy"></div><p class="tname">Neeharika Srinivasan</p><p class="tco">TCS</p><p class="trole">Python, machine learning &amp; analytics</p></article><article class="tcard"><div class="tphoto"><img src="assets/rajendhira.jpg" alt="Rajendhira Prasath S, trainer at SoDak EduTech" loading="lazy"></div><p class="tname">Rajendhira Prasath S</p><p class="tco">Accenture</p><p class="trole">Cloud, DevOps &amp; cybersecurity</p></article><article class="tcard"><div class="tphoto"><img src="assets/harish.jpg" alt="Harish Raj, trainer at SoDak EduTech" loading="lazy"></div><p class="tname">Harish Raj</p><p class="tco">Northern Arc Capital</p><p class="trole">Full-stack &amp; data engineering</p></article></div>
+      <div class="strip-set" aria-hidden="true"><article class="tcard"><div class="tphoto"><img src="assets/nithesh.jpg" alt="Nithesh, trainer at SoDak EduTech" loading="lazy"></div><p class="tname">Nithesh</p><p class="tco">Amazon</p><p class="trole">SDE · Data structures &amp; interview preparation</p></article><article class="tcard"><div class="tphoto"><img src="assets/saivarun.jpg" alt="Sai Varun, trainer at SoDak EduTech" loading="lazy"></div><p class="tname">Sai Varun</p><p class="tco">Zoho Corp</p><p class="trole">Java, Spring Boot &amp; product engineering</p></article><article class="tcard"><div class="tphoto"><img src="assets/neeharika.jpg" alt="Neeharika Srinivasan, trainer at SoDak EduTech" loading="lazy"></div><p class="tname">Neeharika Srinivasan</p><p class="tco">TCS</p><p class="trole">Python, machine learning &amp; analytics</p></article><article class="tcard"><div class="tphoto"><img src="assets/rajendhira.jpg" alt="Rajendhira Prasath S, trainer at SoDak EduTech" loading="lazy"></div><p class="tname">Rajendhira Prasath S</p><p class="tco">Accenture</p><p class="trole">Cloud, DevOps &amp; cybersecurity</p></article><article class="tcard"><div class="tphoto"><img src="assets/harish.jpg" alt="Harish Raj, trainer at SoDak EduTech" loading="lazy"></div><p class="tname">Harish Raj</p><p class="tco">Northern Arc Capital</p><p class="trole">Full-stack &amp; data engineering</p></article></div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section class="band band-dark" id="curriculum" style="border-top:0;padding-top:clamp(50px,6vw,84px)">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow on-dark">What we train</p>
+      <h2>Six stacks, one syllabus per college.</h2>
+      <p>Pick the tracks your department needs. Every stack is taught hands-on — real consoles, real repositories, real deployments — and can be scoped from a two-day workshop to a full semester.</p>
+    </div>
+    <div class="stacks">
+      <article class="stack reveal">
+        <p class="stack-kicker">Stack 01</p>
+        <h3>Cloud</h3>
+        <ul class="chips"><li>AWS</li><li>Microsoft Azure</li><li>Google Cloud</li><li>Multi-cloud architecture</li><li>Cloud security</li><li>Cost optimisation</li><li>Certification prep</li></ul>
+      </article>
+      <article class="stack reveal">
+        <p class="stack-kicker">Stack 02</p>
+        <h3>AI &amp; machine learning</h3>
+        <ul class="chips"><li>Generative AI</li><li>Prompt engineering</li><li>LLM application building</li><li>RAG pipelines</li><li>Machine learning</li><li>Deep learning</li><li>MLOps</li><li>Computer vision</li><li>NLP</li></ul>
+      </article>
+      <article class="stack reveal">
+        <p class="stack-kicker">Stack 03</p>
+        <h3>DevOps &amp; infrastructure</h3>
+        <ul class="chips"><li>DevOps on all clouds</li><li>Docker</li><li>Kubernetes</li><li>Terraform</li><li>Jenkins</li><li>GitHub Actions</li><li>Ansible</li><li>Linux</li><li>Git</li><li>Prometheus &amp; Grafana</li><li>Shell scripting</li></ul>
+      </article>
+      <article class="stack reveal">
+        <p class="stack-kicker">Stack 04</p>
+        <h3>Development</h3>
+        <ul class="chips"><li>Java</li><li>Spring Boot</li><li>Python</li><li>Full-stack</li><li>React</li><li>Node.js</li><li>Next.js</li><li>REST &amp; API design</li><li>SQL &amp; NoSQL</li><li>Data structures &amp; algorithms</li><li>System design</li></ul>
+      </article>
+      <article class="stack reveal">
+        <p class="stack-kicker">Stack 05</p>
+        <h3>Cybersecurity</h3>
+        <ul class="chips"><li>Ethical hacking</li><li>VAPT</li><li>OWASP Top 10</li><li>Network security</li><li>SOC &amp; SIEM</li><li>Digital forensics</li><li>Cloud security</li><li>Cryptography</li><li>CTF labs</li></ul>
+      </article>
+      <article class="stack reveal">
+        <p class="stack-kicker">Stack 06</p>
+        <h3>Data &amp; career readiness</h3>
+        <ul class="chips"><li>Data analytics</li><li>Power BI</li><li>Tableau</li><li>Data engineering</li><li>Aptitude</li><li>Mock interviews</li><li>Resume &amp; LinkedIn</li><li>Group discussion</li><li>Communication</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="band band-recessed" id="partners">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Institutional partners</p>
+      <h2>Colleges we deliver inside.</h2>
+      <p>We work directly with placement cells and departments to run programs on campus, on the academic calendar, with reporting the college can act on.</p>
+    </div>
+    <div class="partners">
+      <article class="partner reveal">
+        <p class="partner-tag">Chennai, Tamil Nadu</p>
+        <h3>St. Joseph's College of Engineering</h3>
+        <p>Placement preparation and technical training delivered for pre-final and final year students.</p>
+      </article>
+      <article class="partner reveal">
+        <p class="partner-tag">Chennai, Tamil Nadu</p>
+        <h3>Sathyabama Institute of Science and Technology</h3>
+        <p>Campus programs covering cloud, coding fundamentals, interview readiness and security labs.</p>
+      </article>
+    </div>
+    <p class="note-strip reveal">Placement cells: request a syllabus and a sample student report — sodakedutech@gmail.com · +91 89393 66259</p>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="band band-light" id="programs">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Programs</p>
+      <h2>Built for placement season.</h2>
+      <p>Each program is scoped to your timeline — a two-day intensive, a value-added course, or a semester-long engagement — and ends with measurable output, not attendance sheets.</p>
+    </div>
+    <div class="programs">
+      <article class="program reveal"><p class="program-idx">Track A</p><h3>Elite placement preparation</h3><p>Focused preparation for top product-based companies: data structures, algorithms, problem patterns, system design and interview communication.</p></article>
+      <article class="program reveal"><p class="program-idx">Track B</p><h3>Cloud &amp; DevOps intensive</h3><p>AWS, Azure and GCP taught on live consoles, then wired together with Docker, Kubernetes, Terraform and CI/CD pipelines students build themselves.</p></article>
+      <article class="program reveal"><p class="program-idx">Track C</p><h3>Generative AI &amp; prompt engineering</h3><p>From prompting fundamentals to building retrieval-augmented applications — the AI literacy every recruiter now screens for.</p></article>
+      <article class="program reveal"><p class="program-idx">Track D</p><h3>Cybersecurity &amp; CTF labs</h3><p>Hands-on security across eight domains, run on our own capture-the-flag platform with live scoring and guided walkthroughs.</p></article>
+      <article class="program reveal"><p class="program-idx">Track E</p><h3>Assessments &amp; screening</h3><p>Timed online assessments modelled on real hiring rounds, hosted on our platform with edge-case-weighted test cases and an admin dashboard.</p></article>
+      <article class="program reveal"><p class="program-idx">Custom</p><h3>Built to your requirement</h3><p>Tell us the branch, the batch size and the companies you're targeting. We'll scope a program around it and share the syllabus before you commit.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- PIPELINE -->
+<section class="band band-dark" id="elite">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow on-dark">The elite track</p>
+      <h2>How a student gets from classroom to offer.</h2>
+      <p>Preparation for product companies is a sequence, not a syllabus. Each stage has an exit criterion — a student moves forward when they clear it, and we report exactly where each cohort stands.</p>
+    </div>
+    <div class="pipeline">
+      <div class="stage reveal"><p class="stage-num">Stage 01</p><h3>Baseline</h3><p>A diagnostic assessment establishes where every student actually stands, per topic.</p></div>
+      <div class="stage reveal"><p class="stage-num">Stage 02</p><h3>Foundations</h3><p>Language fluency, complexity analysis and the core data structures, drilled until reflexive.</p></div>
+      <div class="stage reveal"><p class="stage-num">Stage 03</p><h3>Patterns</h3><p>The recurring problem families that appear across online assessments, taught as patterns.</p></div>
+      <div class="stage reveal"><p class="stage-num">Stage 04</p><h3>Mock rounds</h3><p>Timed assessments and live technical interviews under real conditions, with written feedback.</p></div>
+      <div class="stage reveal is-final"><p class="stage-num">Stage 05</p><h3>Offer-ready</h3><p>Design discussion, project defence and communication — the parts that decide the final round.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORM -->
+<section class="band band-light" id="platform">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Built in-house</p>
+      <h2>We don't rent our infrastructure.</h2>
+      <p>The labs, assessments and learning platform students use are built and maintained by our own engineering team — which means a college can ask for a change and get it.</p>
+    </div>
+    <div class="platform">
+      <article class="plat reveal"><p class="plat-kicker">Capture the flag</p><h3>SoDak CTF platform</h3><p>A hosted CTF environment with challenges across eight security domains, live scoreboards and guided solutions for classroom use.</p></article>
+      <article class="plat reveal"><p class="plat-kicker">Learning management</p><h3>SoDak LMS</h3><p>Course delivery with role-based access for admins and students, progress tracking and analytics the department can review.</p></article>
+      <article class="plat reveal"><p class="plat-kicker">Screening</p><h3>Assessment engine</h3><p>Timed coding assessments for up to 100 concurrent candidates, sandboxed execution, an admin dashboard and CSV export of results.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<section class="band band-dark" style="padding-top:clamp(46px,5.5vw,68px);padding-bottom:clamp(46px,5.5vw,68px)">
+  <div class="wrap">
+    <div class="metrics reveal">
+      <div class="metric"><p class="metric-num">6</p><p class="metric-label">Training stacks</p></div>
+      <div class="metric"><p class="metric-num">50+</p><p class="metric-label">Technologies covered</p></div>
+      <div class="metric"><p class="metric-num">100</p><p class="metric-label">Concurrent assessment seats</p></div>
+      <div class="metric"><p class="metric-num">2,100+</p><p class="metric-label">Practice questions in our bank</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="cta-band" id="contact">
+  <div class="wrap">
+    <div class="cta-grid">
+      <div class="reveal">
+        <p class="eyebrow on-dark">Talk to us</p>
+        <h2>Tell us your batch, your timeline and the companies you're targeting.</h2>
+        <p>We'll send back a scoped syllabus, a delivery schedule that fits your academic calendar, and a sample student report — before you commit to anything.</p>
+        <div class="hero-cta">
+          <a class="btn btn-gold" href="mailto:sodakedutech@gmail.com?subject=Campus%20training%20enquiry">Email the training team</a>
+          <a class="btn btn-ghost" href="https://wa.me/918939366259">WhatsApp us</a>
+        </div>
+      </div>
+      <div class="reveal">
+        <ul class="contact-list">
+          <li><span class="k">Phone</span><span class="v"><a href="tel:+918939366259">+91 89393 66259</a></span></li>
+          <li><span class="k">Email</span><span class="v"><a href="mailto:sodakedutech@gmail.com">sodakedutech@gmail.com</a></span></li>
+          <li><span class="k">Web</span><span class="v"><a href="https://www.sodakedutech.in">sodakedutech.in</a></span></li>
+          <li><span class="k">Contact</span><span class="v">Rajendhira Prasath S — Technology Director</span></li>
+          <li><span class="k">Based in</span><span class="v">Chennai, Tamil Nadu, India</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="yr">2026</span> SoDak EduTech</span>
+    <span>Cloud · AI · DevOps · Security · Placement prep</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+var nav=document.getElementById('nav'),tog=document.getElementById('navToggle');
+tog.addEventListener('click',function(){var o=nav.classList.toggle('open');tog.setAttribute('aria-expanded',o);tog.textContent=o?'Close':'Menu';});
+nav.addEventListener('click',function(e){if(e.target.tagName==='A'){nav.classList.remove('open');tog.textContent='Menu';tog.setAttribute('aria-expanded','false');}});
+var items=document.querySelectorAll('.reveal');
+if(window.matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window)){
+  items.forEach(function(el){el.classList.add('in')});
+}else{
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){
+    var i=Array.prototype.slice.call(e.target.parentNode.children).indexOf(e.target);
+    e.target.style.transitionDelay=Math.min(Math.max(i,0),6)*60+'ms';
+    e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  items.forEach(function(el){io.observe(el)});
+}
+</script>
+</body>
+</html>
